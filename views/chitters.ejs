@@ -1,0 +1,19 @@
+<%- include ('header.ejs') %><%- include ('nav.ejs') %>
+
+<div class="new-chitter">
+  <form action="/chitter" method="post">
+    <label for="chitter">
+      <textarea
+        name="chitter"
+        id="chitter"
+        cols="30"
+        rows="10"
+        placeholder="new chitter!"
+      ></textarea>
+    </label>
+    <input type="submit" value="POST" />
+  </form>
+</div>
+
+<% chitters.forEach(function(chitter){ %> <%- include ('chitter-div.ejs',
+{chitter})%> <% }); %> <%- include ('footer.ejs') %>

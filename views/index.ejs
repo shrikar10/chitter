@@ -1,0 +1,48 @@
+<%- include ('header.ejs') %>
+<!-- body -->
+<header>
+  <% if(message){ %>
+  <p class="message"><%= message %></p>
+  <%}%>
+  <h1>🐥 Chitter</h1>
+  <p>Share your Heart out 💞</p>
+</header>
+
+<section id="hero">
+  <form action="/api/signin" method="post">
+    <h1>Login here</h1>
+    <label for="email"
+      >Email:
+      <input type="email" name="email" id="email" />
+    </label>
+    <label for="password"
+      >Password:
+      <input type="password" name="password" id="password" />
+    </label>
+    <input type="submit" value="Sign In" />
+  </form>
+  <form action="/users" method="post">
+    <h1>Signup here</h1>
+    <label for="name"
+      >Full Name:
+      <input type="text" name="name" id="name" />
+    </label>
+    <label for="username"
+      >Username:
+      <input type="text" name="username" id="username" />
+    </label>
+    <label for="email"
+      >Email:
+      <input type="email" name="email" id="email" />
+    </label>
+
+    <label for="password"
+      >Password:
+      <input type="password" name="password" id="password" />
+    </label>
+    <input type="submit" value="Sign Up" />
+  </form>
+</section>
+
+<!-- end body -->
+<%- include ('footer.ejs') %>

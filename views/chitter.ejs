@@ -1,0 +1,25 @@
+<%- include ('header.ejs') %> <%- include ('nav.ejs') %>
+
+<div class="chitter">
+  <div class="chitter-content">
+    <% if(hasAuth){ %>
+    <button data-resource="chitter/<%=chitter._id%>" class="delete-btn">
+      Delete
+    </button>
+    <%}%>
+    <p><a href="/users/<%= chitter.username %>"><%= chitter.username %></a></p>
+    <h2><%= chitter.chitter %></h2>
+  </div>
+
+  <form action="/chitter/<%=chitter._id%>/comment" method="post">
+    <label>
+      <textarea type="text" name="comment" id="comment"></textarea>
+    </label>
+    <input type="submit" value="Comment" />
+  </form>
+  <div class="comment-container">
+    <% chitter.comments.forEach(function(comment){ %> <%- include
+    ('comment-div.ejs', {comment: comment})%> <% }); %>
+  </div>
+</div>
+<%- include ('footer.ejs') %>
