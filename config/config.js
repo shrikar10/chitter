@@ -3,7 +3,7 @@ if (!process.env.NODE_ENV) {
     dotenv.config();
   }
 const config = {
-    PORT: 4050,
+    PORT: process.env.PORT || 4050,
     MONGODB_URI: process.env.MONGODB_URI,
     JWT_SECRET:"chitter",
 };
